@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>LPlayClass</class>
+ <widget class="QWidget" name="LPlayClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1101</width>
+    <height>751</height>
+   </rect>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>16777215</width>
+    <height>16777215</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>LPlay</string>
+  </property>
+  <widget class="LVideoWidget" name="video">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>11</x>
+     <y>11</y>
+     <width>1078</width>
+     <height>738</height>
+    </rect>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>16777215</width>
+     <height>16777215</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="openFile">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>600</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>打开文件</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="isPlay">
+   <property name="geometry">
+    <rect>
+     <x>580</x>
+     <y>600</y>
+     <width>71</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>播放</string>
+   </property>
+  </widget>
+  <widget class="QSlider" name="playPos">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>700</y>
+     <width>1001</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="maximum">
+    <number>999</number>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>LVideoWidget</class>
+   <extends>QOpenGLWidget</extends>
+   <header>LVideowidget.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="LPlay.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>openFile</sender>
+   <signal>clicked()</signal>
+   <receiver>LPlayClass</receiver>
+   <slot>OpenFile()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>355</x>
+     <y>652</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>486</x>
+     <y>895</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>isPlay</sender>
+   <signal>clicked()</signal>
+   <receiver>LPlayClass</receiver>
+   <slot>PlayOrPause()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>621</x>
+     <y>619</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>620</x>
+     <y>909</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>playPos</sender>
+   <signal>sliderPressed()</signal>
+   <receiver>LPlayClass</receiver>
+   <slot>SliderPress()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>205</x>
+     <y>715</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>208</x>
+     <y>893</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>playPos</sender>
+   <signal>sliderReleased()</signal>
+   <receiver>LPlayClass</receiver>
+   <slot>SliderRelease()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>291</x>
+     <y>711</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>283</x>
+     <y>942</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>OpenFile()</slot>
+  <slot>CloseFile()</slot>
+  <slot>PlayOrPause()</slot>
+  <slot>SliderPress()</slot>
+  <slot>SliderRelease()</slot>
+ </slots>
+</ui>
